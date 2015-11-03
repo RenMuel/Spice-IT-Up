@@ -1,0 +1,83 @@
+<ion-view title="Edit">
+ 
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear" ng-click="Save()">
+      Save
+    </button>
+  </ion-nav-buttons>
+  
+  <ion-content>
+    
+    <ion-list>
+      <ion-item class="item-divider">
+        Rating
+      </ion-item>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Rate this recipe
+        </div>
+        <select ng-model="recipe_data.rating">
+          <option value="0">Clear Rating</option>
+          <option value="1">1 - Not Good</option>
+          <option value="2">2 - Neutral</option>
+          <option value="3">3 - Good</option>
+          <option value="4">4 - Very Good</option>
+          <option value="5">5 - Perfect</option>
+        </select>
+      </label>
+      
+      <ion-item class="item-divider">
+        Servings
+      </ion-item>
+      <ion-item class="item-input">
+        <span class="input-label">Enter # of Servings</span>
+        <input type="number" ng-model="recipe_data.servings">
+      </ion-item>
+      
+      <ion-item class="item-divider">
+        Ingredients
+      </ion-item>
+      <ion-item class="item-input-inset">
+        <label class="item-input-wrapper">
+        <input type="text" placeholder="Enter Ingredient" ng-model="data.ingredient" id="ingredient">
+        </label>
+        <button class="button button-small" ng-click="AddIngredient()">
+          <i class="icon ion-plus"></i>
+        </button>
+      </ion-item>
+      <ion-item ng-show="{{ingredients.length > 0}}">
+        <span style="font-weight:500">Ingredients Added</span>
+      </ion-item>
+      <ion-item ng-repeat="(key, value) in ingredients">
+        {{key + 1}}: {{value}}
+      </ion-item>
+      
+      <ion-item class="item-divider">
+        Instructions
+      </ion-item>
+      <ion-item class="item-input-inset">
+        <label class="item-input-wrapper">
+        <input type="text" placeholder="Enter Instruction" ng-model="data.instruction" id="instruction">
+        </label>
+        <button class="button button-small" ng-click="AddInstruction()">
+          <i class="icon ion-plus"></i>
+        </button>
+      </ion-item>
+      <ion-item ng-show="{{instructions.length > 0}}">
+        <span style="font-weight:500">Instructions Added</span>
+      </ion-item>
+      <ion-item ng-repeat="(key, value) in instructions">
+        {{key + 1}}: {{value}}
+      </ion-item>
+      
+      <ion-item class="item-divider">
+        Notes
+      </ion-item>
+      <ion-item class="item-input">
+        <textarea ng-model="recipe_data.notes" placeholder="Enter your notes" rows="5"></textarea>
+      </ion-item>
+      
+    </ion-list>
+    
+  </ion-content>
+</ion-view>

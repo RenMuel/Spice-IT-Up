@@ -1,0 +1,27 @@
+<ion-view title="Recipe">
+  <ion-nav-bar class="bar-assertive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  
+  <ion-content>
+    <ion-list>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Recipe Name" ng-model="recipe_data.name">
+        </label>
+        <button class="button button-small button-clear button-assertive" style="font-size:1rem"
+          ng-disabled="!recipe_data.name" ng-click="AddRecipe()">
+          Add Recipe
+        </button>
+      </div>
+      
+      <ion-item class="item-divider item-button-right">
+        Recipes
+      </ion-item>
+      <ion-item ng-repeat="r in recipes | orderBy: '+name'" href="#/recipes/{{r.name}}">
+        {{r.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

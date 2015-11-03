@@ -1,0 +1,48 @@
+<ion-view title="{{current_recipe.name}}" cache-view="false">
+ 
+  <ion-nav-buttons side="secondary">
+    <a class="button button-clear" href="#/edit/{{current_recipe.name}}">
+      <i class="icon ion-edit"></i>
+    </a>
+  </ion-nav-buttons>
+ 
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-divider">
+        Rating
+      </ion-item>
+      <ion-item>
+        {{current_recipe.rating}}
+      </ion-item>
+
+      <ion-item class="item-divider">
+        Servings
+      </ion-item>
+      <ion-item>
+        {{current_recipe.servings}}
+      </ion-item>
+      
+      <ion-item class="item-divider">
+        Ingredients
+      </ion-item>
+      <ion-item ng-repeat="(key, value) in current_recipe.ingredients">
+        {{key + 1}}: {{value}}
+      </ion-item>
+      
+      <ion-item class="item-divider">
+        Instructions
+      </ion-item>
+      <ion-item ng-repeat="(key, value) in current_recipe.instructions">
+        {{key + 1}}: {{value}}
+      </ion-item>
+      
+      <ion-item class="item-divider">
+        Notes
+      </ion-item>
+      <ion-item>
+        {{current_recipe.notes}}
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-view>
